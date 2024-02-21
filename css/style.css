@@ -13,6 +13,10 @@ img {
   max-width: 100%;
 }
 
+.slide-wrapper {
+  overflow: hidden;
+}
+
 .slide {
   display: flex;
 }
