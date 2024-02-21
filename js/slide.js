@@ -3,4 +3,17 @@ export default class Slide {
     this.slide = document.querySelector(slide);
     this.wrapper = document.querySelector(wrapper);
   }
+
+  onStart(event) {
+    event.preventDefault();
+  }
+
+  addSlideEvents() {
+    this.wrapper.addEventListener('mousedown', this.onStart);
+  }
+
+  init() {
+    this.addSlideEvents();
+    return this;
+  }
 }
