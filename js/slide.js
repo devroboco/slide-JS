@@ -5,6 +5,10 @@ export default class Slide {
     this.dist = { finalPosition: 0, startX: 0, movement: 0 };
   }
 
+  moveSlide(distX) {
+    this.slide.style.transform = `translate3d(${distX}px, 0, 0)`;
+  }
+
   updatePosition(clientX) {
     this.dist.movement = this.dist.startX - clientX;
     return this.dist.movement;
@@ -18,6 +22,7 @@ export default class Slide {
 
   onMove(event) {
     const finalPosition = this.updatePosition(event.clientX);
+    this.moveSlide(finalPosition);
   }
 
   onEnd(event) {
