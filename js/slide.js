@@ -6,12 +6,13 @@ export default class Slide {
   }
 
   moveSlide(distX) {
+    this.dist.movePosition = distX;
     this.slide.style.transform = `translate3d(${distX}px, 0, 0)`;
   }
 
   updatePosition(clientX) {
     this.dist.movement = this.dist.startX - clientX;
-    return this.dist.movement;
+    return this.dist.finalPosition - this.dist.movement;
   }
 
   onStart(event) {
@@ -27,6 +28,7 @@ export default class Slide {
 
   onEnd(event) {
     this.wrapper.removeEventListener('mousemove', this.onMove);
+    this.dist.finalPosition = this.dist.movePosition;
   }
 
   addSlideEvents() {
