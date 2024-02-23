@@ -56,9 +56,22 @@ export default class Slide {
     this.onEnd = this.onEnd.bind(this);
   }
 
+  // Slides config
+
+  slideConfig() {
+    this.slideArray = [...this.slide.children].map((element) => {
+      const position = element.offsetLeft;
+      return {
+        position,
+        element,
+      };
+    });
+  }
+
   init() {
     this.bindEvents();
     this.addSlideEvents();
+    this.slideConfig();
     return this;
   }
 }
